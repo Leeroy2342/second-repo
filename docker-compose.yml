@@ -10,12 +10,16 @@ services:
    - $EXTERNAL_WEB_PORT:80
   depends_on:
    - db
+  links:
+   - db
   environment:
    MYSQL_NAME: $MYSQL_NAME
    MYSQL_USER: $MYSQL_USER
    MYSQL_PASSWORD: $MYSQL_PASSWORD
    MYSQL_DATABASE: $MYSQL_DATABASE
    EXTERNAL_SQL_PORT: $EXTERNAL_SQL_PORT
+  volumes:
+   - ./php/www:/var/www/html
 
  db: #same as MYSQL_NAME
   image: mariadb
@@ -27,7 +31,7 @@ services:
    MYSQL_USER: $MYSQL_USER
    MYSQL_PASSWORD: $MYSQL_PASSWORD
    MYSQL_DATABASE: $MYSQL_DATABASE
-
+   EXTERNAL_SQL_PORT: $EXTERNAL_SQL_PORT
  phpmyadmin:
   image: phpmyadmin
   links:
