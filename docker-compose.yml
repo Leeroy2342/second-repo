@@ -18,8 +18,6 @@ services:
    MYSQL_PASSWORD: $MYSQL_PASSWORD
    MYSQL_DATABASE: $MYSQL_DATABASE
    EXTERNAL_SQL_PORT: $EXTERNAL_SQL_PORT
-  volumes:
-   - ./php/www:/var/www/html
 
  db: #same as MYSQL_NAME
   image: mariadb

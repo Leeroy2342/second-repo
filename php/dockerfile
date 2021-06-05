@@ -7,5 +7,5 @@ ENV MYSQL_NAME=$MYSQL_NAME \
 RUN apt-get update && apt-get upgrade -y &&\
     docker-php-ext-install mysqli &&\
     env
-#COPY ./www /var/www/html
+COPY ./www /var/www/html
 EXPOSE 80
