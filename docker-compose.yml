@@ -3,9 +3,7 @@ version: '3.8'
 services:
 
  webserver:
-  build:
-   context: ./php
-   dockerfile: dockerfile
+  image: leeroy2342/test-build:latest
   ports:
    - $EXTERNAL_WEB_PORT:80
   depends_on:
