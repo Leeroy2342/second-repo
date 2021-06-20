@@ -1,10 +1,6 @@
 <?php
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-print_r($url);
-$link = mysqli_connect($url);
-
-if ($link)
-echo 'Успешно';
-else die('Ошибка');
-mysqli_close($link);
+$link = pg_connect(getenv("DATABASE_URL"))
+or die("Невозможно подключиться к БД");
+echo "Успешно подключено к БД";
+pg_close($link);
 ?>
