@@ -1,7 +1,12 @@
 <?php
-$db = parse_url(getenv("DATABASE_URL"));
-echo $db;
-$link=mysqli_connect($db);
+$url = parse_url(getenv("DATABASE_URL"));
+
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+$link = mysqli_connect($server, $username, $password, $db);
+
 if ($link)
 echo 'Успешно';
 else die('Ошибка');
