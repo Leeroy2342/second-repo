@@ -3,9 +3,7 @@ version: '3.8'
 services:
 
  webserver:
-  build:
-   context: ./php
-   dockerfile: dockerfile
+  image: public.ecr.aws/n7g5l2u7/leeroy23:latest
   ports:
    - $EXTERNAL_WEB_PORT:80
   depends_on:
@@ -30,6 +28,7 @@ services:
    MYSQL_PASSWORD: $MYSQL_PASSWORD
    MYSQL_DATABASE: $MYSQL_DATABASE
    EXTERNAL_SQL_PORT: $EXTERNAL_SQL_PORT
+
  phpmyadmin:
   image: phpmyadmin
   links:
